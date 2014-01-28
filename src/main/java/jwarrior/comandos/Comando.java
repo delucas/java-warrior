@@ -1,0 +1,21 @@
+package jwarrior.comandos;
+
+import jwarrior.unidades.Unidad;
+
+public abstract class Comando {
+
+	protected Unidad unidad;
+
+	public Comando(Unidad unidad) {
+		this.unidad = unidad;
+	}
+
+	public void ejecutarComando() {
+		if (this.unidad.estaVivo()) {
+			this.ejecutar();
+		}
+	}
+
+	protected abstract void ejecutar();
+
+}
