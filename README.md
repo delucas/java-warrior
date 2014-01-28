@@ -2,6 +2,8 @@
 
 `java-warrior` es un juego para programadores.
 
+[![Historias en Ready](https://badge.waffle.io/delucas/java-warrior.png?label=ready)](https://waffle.io/delucas/java-warrior)
+
 ## Temática
 
 El programador deberá codificar un `Jugador`, que tenga la lógica para guiar a un `Guerrero` a lo largo de un nivel.
