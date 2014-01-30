@@ -1,6 +1,6 @@
 package jwarrior.ui;
 
-public class InterfazDeUsuario {
+public final class InterfazDeUsuario {
 
 	private static InterfazDeUsuario instance = new InterfazDeUsuario();
 
@@ -10,7 +10,7 @@ public class InterfazDeUsuario {
 		return instance;
 	}
 
-	public void mensaje(String mensaje) {
+	public void mensaje(final String mensaje) {
 		// TODO: Desacoplar en una "configuracion" / "salida" / etc
 		System.out.println(mensaje);
 	}

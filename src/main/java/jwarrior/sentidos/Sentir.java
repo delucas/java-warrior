@@ -10,12 +10,12 @@ public class Sentir {
 	private Direccion direccion;
 	private Unidad unidad;
 
-	public Sentir(Direccion direccion, Unidad unidad) {
+	public Sentir(final Direccion direccion, final Unidad unidad) {
 		this.direccion = direccion;
 		this.unidad = unidad;
 	}
 
-	public boolean hay(Espacio espacio) {
+	public boolean hay(final Espacio espacio) {
 		Posicion posicionActual = unidad.obtenerPosicion();
 		Posicion posicionDestino = posicionActual.obtenerContigua(direccion);
 

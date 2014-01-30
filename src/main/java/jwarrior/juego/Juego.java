@@ -14,12 +14,12 @@ public class Juego {
 	private Mapa mapa;
 	private Nivel nivel;
 
-	public Juego(Nivel nivel) {
+	public Juego(final Nivel nivel) {
 		this.nivel = nivel;
 		this.mapa = new Mapa(nivel.obtenerPosiciones());
 	}
 
-	private void mensaje(String mensaje) {
+	private void mensaje(final String mensaje) {
 		InterfazDeUsuario.getInstance().mensaje(mensaje);
 	}
 

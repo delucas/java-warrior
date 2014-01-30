@@ -1,6 +1,7 @@
 package jwarrior.comandos;
 
-import static jwarrior.referencias.Espacio.*;
+import static jwarrior.referencias.Espacio.SALIDA;
+import static jwarrior.referencias.Espacio.VACIO;
 import jwarrior.posiciones.Posicion;
 import jwarrior.referencias.Direccion;
 import jwarrior.unidades.Unidad;
@@ -9,7 +10,7 @@ public class Desplazarse extends Comando {
 
 	private Direccion direccion;
 
-	public Desplazarse(Direccion direccion, Unidad unidad) {
+	public Desplazarse(final Direccion direccion, final Unidad unidad) {
 		super(unidad);
 		this.direccion = direccion;
 	}

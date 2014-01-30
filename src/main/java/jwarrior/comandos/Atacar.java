@@ -8,14 +8,14 @@ public class Atacar extends Comando {
 
 	private Direccion direccion;
 
-	public Atacar(Direccion direccion, Unidad unidad) {
+	public Atacar(final Direccion direccion, final Unidad unidad) {
 		super(unidad);
 		this.direccion = direccion;
 	}
 
 	@Override
 	public void ejecutar() {
-		Posicion posicionActual = unidad.obtenerPosicion();
+		Posicion posicionActual = this.unidad.obtenerPosicion();
 		Posicion posicionDestino = posicionActual.obtenerContigua(direccion);
 
 		Unidad unidadGolpeada = posicionDestino.obtenerUnidad();

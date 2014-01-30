@@ -11,9 +11,8 @@ import jwarrior.unidades.Guerrero;
 
 public class Nivel01 extends Nivel {
 
-	public Nivel01(Jugador jugador) {
-		super(jugador);
-		this.nombre = "Nivel 01";
+	public Nivel01(final Jugador jugador) {
+		super("Nivel 01", jugador);
 	}
 
 	@Override

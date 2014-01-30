@@ -1,15 +1,15 @@
 package jwarrior.unidades;
 
-import jwarrior.posiciones.Posicion;
-import jwarrior.referencias.Direccion;
-import jwarrior.referencias.Espacio;
-import jwarrior.sentidos.Sentir;
-import jwarrior.ui.InterfazDeUsuario;
 import jwarrior.comandos.Atacar;
 import jwarrior.comandos.Comando;
 import jwarrior.comandos.Descansar;
 import jwarrior.comandos.Desplazarse;
 import jwarrior.comandos.NoHacerNada;
+import jwarrior.posiciones.Posicion;
+import jwarrior.referencias.Direccion;
+import jwarrior.referencias.Espacio;
+import jwarrior.sentidos.Sentir;
+import jwarrior.ui.InterfazDeUsuario;
 
 public abstract class Unidad {
 
@@ -21,7 +21,7 @@ public abstract class Unidad {
 	protected Integer saludActual = 0;
 	protected Integer fuerzaMaxima = 0;
 
-	protected Unidad(String nombre) {
+	protected Unidad(final String nombre) {
 		this.nombre = nombre;
 	}
 
@@ -37,11 +37,11 @@ public abstract class Unidad {
 		return new NoHacerNada(this); // TODO: Factory
 	}
 
-	public final Comando atacar(Direccion direccion) {
+	public final Comando atacar(final Direccion direccion) {
 		return new Atacar(direccion, this); // TODO: Factory
 	}
 
-	public final Comando desplazarse(Direccion direccion) {
+	public final Comando desplazarse(final Direccion direccion) {
 		return new Desplazarse(direccion, this); // TODO: Factory
 	}
 
@@ -49,13 +49,13 @@ public abstract class Unidad {
 		return new Descansar(this); // TODO: Factory
 	}
 
-	public final Sentir sentir(Direccion direccion) {
+	public final Sentir sentir(final Direccion direccion) {
 		return new Sentir(direccion, this); // TODO: Factory
 	}
 
 	// Acciones generales de Unidad
 
-	public void recibirGolpe(Integer fuerza) {
+	public void recibirGolpe(final Integer fuerza) {
 		this.saludActual -= fuerza;
 		this.decir("recibe " + fuerza + " de daño y le queda " + this.saludActual + " de salud");
 		if (this.saludActual <= 0) {
@@ -63,19 +63,18 @@ public abstract class Unidad {
 		}
 	}
 
-	public final void curar(Integer cantidadARestaurar) {
-		if (cantidadARestaurar + this.saludActual > this.saludMaxima) {
-			cantidadARestaurar = this.saludMaxima - this.saludActual;
-		}
-		this.saludActual += cantidadARestaurar;
+	public final void curar(final Integer cantidadARestaurar) {
+		this.saludActual = Math.min(
+				this.saludActual + cantidadARestaurar,
+				this.saludMaxima);
 	}
 
-	private final void morir() {
+	private void morir() {
 		this.decir("muere");
 		this.posicion.liberar();
 	}
 
-	public final void decir(String frase) {
+	public final void decir(final String frase) {
 		InterfazDeUsuario.getInstance().mensaje(nombre + " " + frase);
 	}
 
@@ -93,7 +92,7 @@ public abstract class Unidad {
 		return this.saludActual > 0;
 	}
 
-	public final void establecerPosicion(Posicion posicion) {
+	public final void establecerPosicion(final Posicion posicion) {
 		this.posicion = posicion;
 	}
 
@@ -101,7 +100,7 @@ public abstract class Unidad {
 		return this.posicion;
 	}
 
-	protected final void establecerFuerzaMaxima(Integer fuerzaMaxima) {
+	protected final void establecerFuerzaMaxima(final Integer fuerzaMaxima) {
 		this.fuerzaMaxima = fuerzaMaxima;
 	}
 
@@ -109,7 +108,7 @@ public abstract class Unidad {
 		return this.fuerzaMaxima;
 	}
 
-	protected final void establecerSaludMaxima(Integer saludMaxima) {
+	protected final void establecerSaludMaxima(final Integer saludMaxima) {
 		this.saludMaxima = saludMaxima;
 		this.saludActual = saludMaxima;
 	}

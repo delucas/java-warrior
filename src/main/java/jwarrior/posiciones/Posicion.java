@@ -15,15 +15,15 @@ public class Posicion {
 		this(new UnidadNula());
 	}
 
-	public Posicion(Unidad unidad) {
+	public Posicion(final Unidad unidad) {
 		this.establecerUnidad(unidad);
 	}
 
-	public boolean hay(Espacio espacio) {
+	public boolean hay(final Espacio espacio) {
 		return this.unidad.obtenerTipo() == espacio;
 	}
 
-	public void establecerMapa(Mapa mapa) {
+	public void establecerMapa(final Mapa mapa) {
 		this.mapa = mapa;
 	}
 
@@ -31,12 +31,12 @@ public class Posicion {
 		return this.unidad;
 	}
 
-	public void establecerUnidad(Unidad unidad) {
+	public void establecerUnidad(final Unidad unidad) {
 		this.unidad = unidad;
 		this.unidad.establecerPosicion(this);
 	}
 
-	public Posicion obtenerContigua(Direccion direccion) {
+	public Posicion obtenerContigua(final Direccion direccion) {
 		int offset = 1;
 		if (direccion == Direccion.ATRAS) {
 			offset = -1;
@@ -45,7 +45,7 @@ public class Posicion {
 		return mapa.obtenerPosicionRelativa(this, offset);
 	}
 
-	public void moverUnidadHacia(Posicion posicionDestino) {
+	public void moverUnidadHacia(final Posicion posicionDestino) {
 		posicionDestino.establecerUnidad(this.unidad);
 		this.unidad = new UnidadNula();
 	}
@@ -54,7 +54,7 @@ public class Posicion {
 		this.unidad = new UnidadNula();
 	}
 
-	public boolean existeContigua(Direccion direccion) {
+	public boolean existeContigua(final Direccion direccion) {
 		return !this.obtenerContigua(direccion).hay(Espacio.INEXISTENTE);
 	}
 

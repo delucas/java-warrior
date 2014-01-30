@@ -1,6 +1,6 @@
 package jwarrior.posiciones;
 
-import static jwarrior.referencias.Espacio.*;
+import static jwarrior.referencias.Espacio.PUERTA;
 import jwarrior.referencias.Espacio;
 import jwarrior.unidades.UnidadNula;
 
@@ -10,7 +10,7 @@ public class Puerta extends Posicion {
 	}
 
 	@Override
-	public boolean hay(Espacio espacio) {
+	public boolean hay(final Espacio espacio) {
 		return PUERTA == espacio;
 	}
 

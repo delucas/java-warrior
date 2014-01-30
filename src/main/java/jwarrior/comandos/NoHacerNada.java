@@ -5,7 +5,7 @@ import jwarrior.unidades.Unidad;
 
 public class NoHacerNada extends Comando {
 
-	public NoHacerNada(Unidad unidad) {
+	public NoHacerNada(final Unidad unidad) {
 		super(unidad);
 	}
 

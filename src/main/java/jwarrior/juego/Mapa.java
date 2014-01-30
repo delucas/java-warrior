@@ -1,6 +1,5 @@
 package jwarrior.juego;
 
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class Mapa {
 	private List<Posicion> posiciones;
 	private Unidad guerrero;
 
-	public Mapa(List<Posicion> posiciones) {
+	public Mapa(final List<Posicion> posiciones) {
 		this.posiciones = posiciones;
 
 		for (Posicion posicion : this.posiciones) {
@@ -26,21 +25,21 @@ public class Mapa {
 	}
 
 	public boolean estaTerminado() {
-		return !this.guerrero.estaVivo() ||
-				this.guerrero.obtenerPosicion().hay(Espacio.SALIDA);
+		return !this.guerrero.estaVivo()
+				|| this.guerrero.obtenerPosicion().hay(Espacio.SALIDA);
 	}
 
 	public List<Unidad> obtenerUnidades() {
 		List<Unidad> unidades = new LinkedList<>();
 		for (Posicion p : this.posiciones) {
-			if (! p.hay(Espacio.VACIO)) {
+			if (!p.hay(Espacio.VACIO)) {
 				unidades.add(p.obtenerUnidad());
 			}
 		}
 		return unidades;
 	}
 
-	public Posicion obtenerPosicionRelativa(Posicion posicion, int offset) {
+	public Posicion obtenerPosicionRelativa(final Posicion posicion, final int offset) {
 		int i = 0, indice = -1;
 		for (Posicion p : posiciones) {
 			if (p == posicion) {
@@ -60,7 +59,8 @@ public class Mapa {
 
 	@Override
 	public String toString() {
-		String resultado = new String(new char[posiciones.size()]).replace("\0", "-");
+		String resultado = new String(new char[posiciones.size()]).replace(
+				"\0", "-");
 		resultado += "\n";
 		for (Posicion posicion : posiciones) {
 			resultado += posicion.toCharacter();

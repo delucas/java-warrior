@@ -5,8 +5,8 @@ import jwarrior.comandos.Comando;
 
 public interface Jugador {
 
-	public Comando jugarTurno(Guerrero guerrero);
+	Comando jugarTurno(Guerrero guerrero);
 
-	public String obtenerNombreDelGuerrero();
+	String obtenerNombreDelGuerrero();
 
 }

@@ -7,10 +7,11 @@ import jwarrior.posiciones.Posicion;
 
 public abstract class Nivel {
 
-	protected String nombre;
+	private String nombre;
 	protected Jugador jugador;
 
-	public Nivel(Jugador jugador) {
+	public Nivel(final String nombre, final Jugador jugador) {
+		this.nombre = nombre;
 		this.jugador = jugador;
 	}
 

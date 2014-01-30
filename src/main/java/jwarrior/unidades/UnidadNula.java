@@ -8,7 +8,7 @@ public class UnidadNula extends Unidad {
 	}
 
 	@Override
-	public void recibirGolpe(Integer fuerza) {
+	public void recibirGolpe(final Integer fuerza) {
 		// no puede recibir golpes!
 	}
 

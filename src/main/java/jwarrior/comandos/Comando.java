@@ -6,7 +6,7 @@ public abstract class Comando {
 
 	protected Unidad unidad;
 
-	public Comando(Unidad unidad) {
+	public Comando(final Unidad unidad) {
 		this.unidad = unidad;
 	}
 
@@ -17,5 +17,4 @@ public abstract class Comando {
 	}
 
 	protected abstract void ejecutar();
-
 }

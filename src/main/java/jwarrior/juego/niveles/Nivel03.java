@@ -12,9 +12,8 @@ import jwarrior.unidades.Orco;
 
 public class Nivel03 extends Nivel {
 
-	public Nivel03(Jugador jugador) {
-		super(jugador);
-		this.nombre = "Nivel 03";
+	public Nivel03(final Jugador jugador) {
+		super("Nivel 03", jugador);
 	}
 
 	@Override

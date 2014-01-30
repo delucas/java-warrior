@@ -5,7 +5,7 @@ import jwarrior.referencias.Espacio;
 public class PosicionInexistente extends Posicion {
 
 	@Override
-	public boolean hay(Espacio espacio) {
+	public boolean hay(final Espacio espacio) {
 		return Espacio.INEXISTENTE == espacio;
 	}
 
