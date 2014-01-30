@@ -31,7 +31,7 @@ public class Posicion {
 		return this.unidad;
 	}
 
-	public void establecerUnidad(final Unidad unidad) {
+	public final void establecerUnidad(final Unidad unidad) {
 		this.unidad = unidad;
 		this.unidad.establecerPosicion(this);
 	}

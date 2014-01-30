@@ -10,7 +10,7 @@ import jwarrior.unidades.Unidad;
 
 public class Mapa {
 
-	private List<Posicion> posiciones;
+	private final List<Posicion> posiciones;
 	private Unidad guerrero;
 
 	public Mapa(final List<Posicion> posiciones) {
@@ -30,7 +30,7 @@ public class Mapa {
 	}
 
 	public List<Unidad> obtenerUnidades() {
-		List<Unidad> unidades = new LinkedList<>();
+		List<Unidad> unidades = new LinkedList<Unidad>();
 		for (Posicion p : this.posiciones) {
 			if (!p.hay(Espacio.VACIO)) {
 				unidades.add(p.obtenerUnidad());
@@ -40,14 +40,12 @@ public class Mapa {
 	}
 
 	public Posicion obtenerPosicionRelativa(final Posicion posicion, final int offset) {
-		int i = 0, indice = -1;
-		for (Posicion p : posiciones) {
-			if (p == posicion) {
+		int indice = -1;
+		for (int i = 0; i < posiciones.size() && indice == -1; i++) {
+			if (posiciones.get(i) == posicion) {
 				indice = i;
 			}
-			i++;
 		}
-		// el indice podría conocerlo la "posicion"
 
 		int posicionRelativa = indice + offset;
 

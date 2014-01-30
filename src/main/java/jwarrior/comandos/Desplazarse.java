@@ -8,7 +8,7 @@ import jwarrior.unidades.Unidad;
 
 public class Desplazarse extends Comando {
 
-	private Direccion direccion;
+	private final Direccion direccion;
 
 	public Desplazarse(final Direccion direccion, final Unidad unidad) {
 		super(unidad);
