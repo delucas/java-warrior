@@ -11,8 +11,8 @@ import jwarrior.comandos.Comando;
 public class Juego {
 
 	private static final int CANTIDAD_MAXIMA_TURNOS = 100;
-	private Mapa mapa;
-	private Nivel nivel;
+	private final Mapa mapa;
+	private final Nivel nivel;
 
 	public Juego(final Nivel nivel) {
 		this.nivel = nivel;

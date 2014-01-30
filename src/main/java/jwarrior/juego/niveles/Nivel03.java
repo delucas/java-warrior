@@ -18,7 +18,7 @@ public class Nivel03 extends Nivel {
 
 	@Override
 	public List<Posicion> obtenerPosiciones() {
-		ArrayList<Posicion> posiciones = new ArrayList<>();
+		List<Posicion> posiciones = new ArrayList<Posicion>();
 		posiciones.add(new Puerta());
 		posiciones.add(new Posicion(new Guerrero(this.jugador.obtenerNombreDelGuerrero(), this.jugador)));
 		posiciones.add(new Posicion());

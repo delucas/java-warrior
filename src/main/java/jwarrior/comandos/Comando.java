@@ -4,7 +4,7 @@ import jwarrior.unidades.Unidad;
 
 public abstract class Comando {
 
-	protected Unidad unidad;
+	protected final Unidad unidad;
 
 	public Comando(final Unidad unidad) {
 		this.unidad = unidad;

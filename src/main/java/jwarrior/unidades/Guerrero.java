@@ -9,7 +9,7 @@ public class Guerrero extends Unidad {
 
 	private static final int FUERZA_MAXIMA = 5;
 	private static final int SALUD_MAXIMA = 20;
-	private Jugador jugador;
+	private final Jugador jugador;
 
 	public Guerrero(final String nombre, final Jugador jugador) {
 		super(nombre);

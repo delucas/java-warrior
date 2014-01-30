@@ -6,7 +6,7 @@ import jwarrior.unidades.Unidad;
 
 public class Atacar extends Comando {
 
-	private Direccion direccion;
+	private final Direccion direccion;
 
 	public Atacar(final Direccion direccion, final Unidad unidad) {
 		super(unidad);

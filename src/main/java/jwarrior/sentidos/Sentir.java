@@ -7,8 +7,8 @@ import jwarrior.unidades.Unidad;
 
 public class Sentir {
 
-	private Direccion direccion;
-	private Unidad unidad;
+	private final Direccion direccion;
+	private final Unidad unidad;
 
 	public Sentir(final Direccion direccion, final Unidad unidad) {
 		this.direccion = direccion;
