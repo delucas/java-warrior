@@ -2,7 +2,8 @@
 
 `java-warrior` es un juego para programadores.
 
-[![Historias en Ready](https://badge.waffle.io/delucas/java-warrior.png?label=ready)](https://waffle.io/delucas/java-warrior)
+[![Historias en Ready](https://badge.waffle.io/delucas/java-warrior.png?label=ready)](https://waffle.io/delucas/java-warrior)  
+[![Build Status](https://travis-ci.org/delucas/java-warrior.png?branch=master)](https://travis-ci.org/delucas/java-warrior)
 
 ## Temática
 
