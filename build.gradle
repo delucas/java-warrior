@@ -36,6 +36,10 @@ buildscript {
 
 // Tareas
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.6'
+}
+
 checkstyle {
     configFile = new File(rootDir, "src/test/resources/sun_checks.xml")
     ignoreFailures = true
