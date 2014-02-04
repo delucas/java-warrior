@@ -6,7 +6,6 @@ import jwarrior.comandos.Descansar;
 import jwarrior.comandos.Desplazarse;
 import jwarrior.comandos.NoHacerNada;
 import jwarrior.piezas.Pieza;
-import jwarrior.posiciones.Posicion;
 import jwarrior.referencias.Direccion;
 import jwarrior.referencias.Espacio;
 import jwarrior.sentidos.Sentir;
@@ -14,9 +13,7 @@ import jwarrior.ui.InterfazDeUsuario;
 
 public abstract class Unidad extends Pieza {
 
-	protected Espacio tipo = Espacio.VACIO;
 	protected String nombre;
-	private Posicion posicion;
 
 	protected Integer saludMaxima = 0;
 	protected Integer saludActual = 0;
@@ -73,7 +70,7 @@ public abstract class Unidad extends Pieza {
 
 	private void morir() {
 		this.decir("muere");
-		this.posicion.liberar();
+		this.obtenerPosicion().liberar();
 	}
 
 	public final void decir(final String frase) {
