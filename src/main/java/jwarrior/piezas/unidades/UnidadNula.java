@@ -1,10 +1,12 @@
-package jwarrior.unidades;
+package jwarrior.piezas.unidades;
+
+import jwarrior.referencias.Espacio;
 
 
 public class UnidadNula extends Unidad {
 
 	public UnidadNula() {
-		super("la nada");
+		super("la nada", Espacio.VACIO);
 	}
 
 	@Override

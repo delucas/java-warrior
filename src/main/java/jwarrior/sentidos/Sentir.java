@@ -1,9 +1,9 @@
 package jwarrior.sentidos;
 
+import jwarrior.piezas.unidades.Unidad;
 import jwarrior.posiciones.Posicion;
 import jwarrior.referencias.Direccion;
 import jwarrior.referencias.Espacio;
-import jwarrior.unidades.Unidad;
 
 public class Sentir {
 

@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jwarrior.juego.Jugador;
+import jwarrior.piezas.Puerta;
+import jwarrior.piezas.Salida;
+import jwarrior.piezas.unidades.Guerrero;
 import jwarrior.posiciones.Posicion;
-import jwarrior.posiciones.Puerta;
-import jwarrior.posiciones.Salida;
-import jwarrior.unidades.Guerrero;
 
 public class Nivel01 extends Nivel {
 

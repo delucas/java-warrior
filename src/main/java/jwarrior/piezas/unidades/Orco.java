@@ -1,4 +1,4 @@
-package jwarrior.unidades;
+package jwarrior.piezas.unidades;
 
 import static jwarrior.referencias.Direccion.ATRAS;
 import static jwarrior.referencias.Espacio.ENEMIGO;
@@ -11,8 +11,7 @@ public class Orco extends Unidad {
 	private static final int SALUD_MAXIMA = 8;
 
 	public Orco() {
-		super("Orco");
-		this.tipo = ENEMIGO;
+		super("Orco", ENEMIGO);
 
 		this.establecerSaludMaxima(SALUD_MAXIMA);
 		this.establecerFuerzaMaxima(FUERZA_MAXIMA);

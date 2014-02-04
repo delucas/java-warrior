@@ -2,9 +2,9 @@ package jwarrior.comandos;
 
 import static jwarrior.referencias.Espacio.SALIDA;
 import static jwarrior.referencias.Espacio.VACIO;
+import jwarrior.piezas.unidades.Unidad;
 import jwarrior.posiciones.Posicion;
 import jwarrior.referencias.Direccion;
-import jwarrior.unidades.Unidad;
 
 public class Desplazarse extends Comando {
 

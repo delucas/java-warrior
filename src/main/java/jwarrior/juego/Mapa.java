@@ -3,10 +3,10 @@ package jwarrior.juego;
 import java.util.LinkedList;
 import java.util.List;
 
+import jwarrior.piezas.unidades.Unidad;
 import jwarrior.posiciones.Posicion;
 import jwarrior.posiciones.PosicionInexistente;
 import jwarrior.referencias.Espacio;
-import jwarrior.unidades.Unidad;
 
 public class Mapa {
 
@@ -32,8 +32,8 @@ public class Mapa {
 	public List<Unidad> obtenerUnidades() {
 		List<Unidad> unidades = new LinkedList<Unidad>();
 		for (Posicion p : this.posiciones) {
-			if (!p.hay(Espacio.VACIO)) {
-				unidades.add(p.obtenerUnidad());
+			if (p.obtenerPieza().esUnidad()) {
+				unidades.add((Unidad) p.obtenerPieza());
 			}
 		}
 		return unidades;

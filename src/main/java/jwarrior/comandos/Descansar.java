@@ -1,6 +1,6 @@
 package jwarrior.comandos;
 
-import jwarrior.unidades.Unidad;
+import jwarrior.piezas.unidades.Unidad;
 
 public class Descansar extends Comando {
 

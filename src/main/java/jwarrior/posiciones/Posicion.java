@@ -1,39 +1,49 @@
 package jwarrior.posiciones;
 
 import jwarrior.juego.Mapa;
+import jwarrior.piezas.Pieza;
+import jwarrior.piezas.PiezaNula;
+import jwarrior.piezas.unidades.Unidad;
+import jwarrior.piezas.unidades.UnidadNula;
 import jwarrior.referencias.Direccion;
 import jwarrior.referencias.Espacio;
-import jwarrior.unidades.Unidad;
-import jwarrior.unidades.UnidadNula;
 
 public class Posicion {
 
 	private Mapa mapa;
-	protected Unidad unidad;
+	protected Pieza pieza;
 
 	public Posicion() {
-		this(new UnidadNula());
+		this(new PiezaNula());
 	}
 
-	public Posicion(final Unidad unidad) {
-		this.establecerUnidad(unidad);
+	public Posicion(final Pieza pieza) {
+		this.establecerPieza(pieza);
 	}
 
 	public boolean hay(final Espacio espacio) {
-		return this.unidad.obtenerTipo() == espacio;
+		return this.pieza.obtenerTipo() == espacio;
 	}
 
 	public void establecerMapa(final Mapa mapa) {
 		this.mapa = mapa;
 	}
 
-	public Unidad obtenerUnidad() {
-		return this.unidad;
+	public Pieza obtenerPieza() {
+		return this.pieza;
 	}
 
-	public final void establecerUnidad(final Unidad unidad) {
-		this.unidad = unidad;
-		this.unidad.establecerPosicion(this);
+	public Unidad obtenerUnidad() {
+		Unidad retorno = new UnidadNula();
+		if (this.pieza.esUnidad()) {
+			retorno = (Unidad) this.pieza;
+		}
+		return retorno;
+	}
+
+	public final void establecerPieza(final Pieza pieza) {
+		this.pieza = pieza;
+		this.pieza.establecerPosicion(this);
 	}
 
 	public Posicion obtenerContigua(final Direccion direccion) {
@@ -46,12 +56,12 @@ public class Posicion {
 	}
 
 	public void moverUnidadHacia(final Posicion posicionDestino) {
-		posicionDestino.establecerUnidad(this.unidad);
-		this.unidad = new UnidadNula();
+		posicionDestino.establecerPieza(this.pieza);
+		this.pieza = new PiezaNula();
 	}
 
 	public void liberar() {
-		this.unidad = new UnidadNula();
+		this.pieza = new PiezaNula();
 	}
 
 	public boolean existeContigua(final Direccion direccion) {
@@ -60,10 +70,10 @@ public class Posicion {
 
 	@Override
 	public String toString() {
-		return this.unidad.toString();
+		return this.pieza.toString();
 	}
 
 	public String toCharacter() {
-		return this.obtenerUnidad().toCharacter();
+		return this.obtenerPieza().toCharacter();
 	}
 }

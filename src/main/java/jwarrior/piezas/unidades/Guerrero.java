@@ -1,4 +1,4 @@
-package jwarrior.unidades;
+package jwarrior.piezas.unidades;
 
 import static jwarrior.referencias.Espacio.GUERRERO;
 import jwarrior.comandos.Comando;
@@ -12,8 +12,7 @@ public class Guerrero extends Unidad {
 	private final Jugador jugador;
 
 	public Guerrero(final String nombre, final Jugador jugador) {
-		super(nombre);
-		this.tipo = GUERRERO;
+		super(nombre, GUERRERO);
 
 		this.establecerSaludMaxima(SALUD_MAXIMA);
 		this.establecerFuerzaMaxima(FUERZA_MAXIMA);

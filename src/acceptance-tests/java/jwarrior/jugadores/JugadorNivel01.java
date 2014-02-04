@@ -2,7 +2,7 @@ package jwarrior.jugadores;
 
 import static jwarrior.referencias.Direccion.ADELANTE;
 import jwarrior.juego.Jugador;
-import jwarrior.unidades.Guerrero;
+import jwarrior.piezas.unidades.Guerrero;
 import jwarrior.comandos.Comando;
 
 public class JugadorNivel01 implements Jugador {

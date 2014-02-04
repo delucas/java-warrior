@@ -1,17 +1,18 @@
-package jwarrior.unidades;
+package jwarrior.piezas.unidades;
 
 import jwarrior.comandos.Atacar;
 import jwarrior.comandos.Comando;
 import jwarrior.comandos.Descansar;
 import jwarrior.comandos.Desplazarse;
 import jwarrior.comandos.NoHacerNada;
+import jwarrior.piezas.Pieza;
 import jwarrior.posiciones.Posicion;
 import jwarrior.referencias.Direccion;
 import jwarrior.referencias.Espacio;
 import jwarrior.sentidos.Sentir;
 import jwarrior.ui.InterfazDeUsuario;
 
-public abstract class Unidad {
+public abstract class Unidad extends Pieza {
 
 	protected Espacio tipo = Espacio.VACIO;
 	protected String nombre;
@@ -21,7 +22,8 @@ public abstract class Unidad {
 	protected Integer saludActual = 0;
 	protected Integer fuerzaMaxima = 0;
 
-	protected Unidad(final String nombre) {
+	protected Unidad(final String nombre, final Espacio tipo) {
+		super(tipo);
 		this.nombre = nombre;
 	}
 
@@ -80,24 +82,12 @@ public abstract class Unidad {
 
 	// Getters / Setters
 
-	public final Espacio obtenerTipo() {
-		return tipo;
-	}
-
 	public boolean estaSaludable() {
 		return this.saludActual == this.saludMaxima;
 	}
 
 	public final boolean estaVivo() {
 		return this.saludActual > 0;
-	}
-
-	public final void establecerPosicion(final Posicion posicion) {
-		this.posicion = posicion;
-	}
-
-	public final Posicion obtenerPosicion() {
-		return this.posicion;
 	}
 
 	protected final void establecerFuerzaMaxima(final Integer fuerzaMaxima) {
@@ -121,6 +111,10 @@ public abstract class Unidad {
 		return this.saludActual;
 	}
 
+	public boolean esUnidad() {
+		return true;
+	}
+	
 	@Override
 	public String toString() {
 		return this.nombre;

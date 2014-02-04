@@ -4,8 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import jwarrior.juego.niveles.Nivel;
+import jwarrior.piezas.unidades.Unidad;
 import jwarrior.ui.InterfazDeUsuario;
-import jwarrior.unidades.Unidad;
 import jwarrior.comandos.Comando;
 
 public class Juego {

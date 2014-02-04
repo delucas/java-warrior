@@ -1,12 +1,13 @@
-package jwarrior.posiciones;
+package jwarrior.piezas;
 
 import static jwarrior.referencias.Espacio.PUERTA;
+import jwarrior.posiciones.Posicion;
 import jwarrior.referencias.Espacio;
-import jwarrior.unidades.UnidadNula;
 
 public class Puerta extends Posicion {
+
 	public Puerta() {
-		this.establecerUnidad(new UnidadNula());
+		this.establecerPieza(new PiezaNula());
 	}
 
 	@Override

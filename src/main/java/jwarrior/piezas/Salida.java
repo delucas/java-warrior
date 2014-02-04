@@ -1,12 +1,13 @@
-package jwarrior.posiciones;
+package jwarrior.piezas;
 
 import static jwarrior.referencias.Espacio.SALIDA;
+import jwarrior.posiciones.Posicion;
 import jwarrior.referencias.Espacio;
-import jwarrior.unidades.UnidadNula;
 
 public class Salida extends Posicion {
+
 	public Salida() {
-		this.establecerUnidad(new UnidadNula());
+		this.establecerPieza(new PiezaNula());
 	}
 
 	@Override
@@ -23,5 +24,4 @@ public class Salida extends Posicion {
 	public String toCharacter() {
 		return "S";
 	}
-
 }
