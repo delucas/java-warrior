@@ -1,4 +1,4 @@
-package jwarrior.comandos.fabricas;
+package jwarrior.fabricas.comandos;
 
 import jwarrior.comandos.Comando;
 import jwarrior.piezas.unidades.Unidad;

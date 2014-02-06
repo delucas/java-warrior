@@ -1,7 +1,7 @@
 package jwarrior.piezas.unidades;
 
 import jwarrior.comandos.Comando;
-import jwarrior.comandos.fabricas.LocalizadorDeFabricas;
+import jwarrior.fabricas.LocalizadorDeFabricas;
 import jwarrior.piezas.Pieza;
 import jwarrior.referencias.Direccion;
 import jwarrior.referencias.Espacio;
@@ -58,7 +58,10 @@ public abstract class Unidad extends Pieza {
 	}
 
 	public final Sentir sentir(final Direccion direccion) {
-		return new Sentir(direccion, this); // TODO: Factory
+		return LocalizadorDeFabricas
+				.obtenerInstancia()
+				.obtenerFabricaDeSentidos()
+				.crearSentir(direccion, this);
 	}
 
 	// Acciones generales de Unidad

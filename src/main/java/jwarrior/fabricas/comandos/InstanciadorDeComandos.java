@@ -1,4 +1,4 @@
-package jwarrior.comandos.fabricas;
+package jwarrior.fabricas.comandos;
 
 import jwarrior.comandos.Atacar;
 import jwarrior.comandos.Comando;
