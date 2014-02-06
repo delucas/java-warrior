@@ -1,10 +1,7 @@
 package jwarrior.piezas.unidades;
 
-import jwarrior.comandos.Atacar;
 import jwarrior.comandos.Comando;
-import jwarrior.comandos.Descansar;
-import jwarrior.comandos.Desplazarse;
-import jwarrior.comandos.NoHacerNada;
+import jwarrior.comandos.fabricas.LocalizadorDeFabricas;
 import jwarrior.piezas.Pieza;
 import jwarrior.referencias.Direccion;
 import jwarrior.referencias.Espacio;
@@ -33,19 +30,31 @@ public abstract class Unidad extends Pieza {
 	// Comandos y Sentidos
 
 	public final Comando noHacerNada() {
-		return new NoHacerNada(this); // TODO: Factory
+		return LocalizadorDeFabricas
+				.obtenerInstancia()
+				.obtenerFabricaDeComandos()
+				.crearNoHacerNada(this);
 	}
 
 	public final Comando atacar(final Direccion direccion) {
-		return new Atacar(direccion, this); // TODO: Factory
+		return LocalizadorDeFabricas
+				.obtenerInstancia()
+				.obtenerFabricaDeComandos()
+				.crearAtacar(direccion, this);
 	}
 
 	public final Comando desplazarse(final Direccion direccion) {
-		return new Desplazarse(direccion, this); // TODO: Factory
+		return LocalizadorDeFabricas
+				.obtenerInstancia()
+				.obtenerFabricaDeComandos()
+				.crearDesplazarse(direccion, this);
 	}
 
 	public final Comando descansar() {
-		return new Descansar(this); // TODO: Factory
+		return LocalizadorDeFabricas
+				.obtenerInstancia()
+				.obtenerFabricaDeComandos()
+				.crearDescansar(this);
 	}
 
 	public final Sentir sentir(final Direccion direccion) {
