@@ -20,7 +20,7 @@ public class Guerrero extends Unidad {
 		this.jugador = jugador;
 	}
 
-	public Comando proximoMovimiento() {
+	public Comando proximoComando() {
 		return jugador.jugarTurno(this);
 	}
 

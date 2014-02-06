@@ -8,7 +8,7 @@ import jwarrior.comandos.NoHacerNada;
 import jwarrior.piezas.unidades.Unidad;
 import jwarrior.referencias.Direccion;
 
-public class InstanciadorDeComandos implements FabricaDeComandos {
+public class CreadorDeComandos implements FabricaDeComandos {
 
 	public Comando crearNoHacerNada(final Unidad unidad) {
 		return new NoHacerNada(unidad);

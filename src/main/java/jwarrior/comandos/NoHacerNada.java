@@ -11,6 +11,7 @@ public class NoHacerNada extends Comando {
 
 	@Override
 	public void ejecutar() {
-		this.unidad.decir("no hace nada");
+		Unidad unidadPerezosa = this.obtenerUnidad();
+		unidadPerezosa.decir("no hace nada");
 	}
 }

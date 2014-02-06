@@ -10,11 +10,11 @@ import jwarrior.ui.InterfazDeUsuario;
 
 public abstract class Unidad extends Pieza {
 
-	protected String nombre;
+	private String nombre;
 
-	protected Integer saludMaxima = 0;
-	protected Integer saludActual = 0;
-	protected Integer fuerzaMaxima = 0;
+	private Integer saludMaxima = 0;
+	private Integer saludActual = 0;
+	private Integer fuerzaMaxima = 0;
 
 	protected Unidad(final String nombre, final Espacio tipo) {
 		super(tipo);
@@ -23,7 +23,7 @@ public abstract class Unidad extends Pieza {
 
 	// Puntos de extensión
 
-	public Comando proximoMovimiento() {
+	public Comando proximoComando() {
 		return this.noHacerNada();
 	}
 
@@ -123,7 +123,7 @@ public abstract class Unidad extends Pieza {
 	public boolean esUnidad() {
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return this.nombre;

@@ -18,20 +18,21 @@ public class Desplazarse extends Comando {
 	@Override
 	public void ejecutar() {
 
-		Posicion posicionActual = unidad.obtenerPosicion();
+		final Unidad unidadSemoviente = this.obtenerUnidad();
+		Posicion posicionActual = unidadSemoviente.obtenerPosicion();
 		if (posicionActual.existeContigua(direccion)) {
 
 			Posicion posicionDestino = posicionActual.obtenerContigua(direccion);
 			if (posicionDestino.hay(VACIO) || posicionDestino.hay(SALIDA)) {
 
-				this.unidad.decir("se desplaza hacia " + direccion);
+				unidadSemoviente.decir("se desplaza hacia " + direccion);
 				posicionActual.moverUnidadHacia(posicionDestino);
 			} else {
 
-				this.unidad.decir("no avanza y se choca contra " + posicionDestino);
+				unidadSemoviente.decir("no avanza y se choca contra " + posicionDestino);
 			}
 		} else {
-			this.unidad.decir("no puede avanzar más");
+			unidadSemoviente.decir("no puede avanzar más");
 		}
 	}
 }

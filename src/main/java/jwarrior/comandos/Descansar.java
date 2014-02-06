@@ -12,15 +12,16 @@ public class Descansar extends Comando {
 
 	@Override
 	public void ejecutar() {
-		if (this.unidad.estaSaludable()) {
-			this.unidad.decir("ya estaba completamente curado");
+		Unidad unidadQueReposa = this.obtenerUnidad();
+		if (unidadQueReposa.estaSaludable()) {
+			unidadQueReposa.decir("ya estaba completamente curado");
 		} else {
-			Integer cantidadARestaurar = (int) Math.round(this.unidad
+			Integer cantidadARestaurar = (int) Math.round(unidadQueReposa
 					.obtenerSaludMaxima() * INDICE_DE_RESTAURACION);
-			this.unidad.curar(cantidadARestaurar);
-			this.unidad.decir("está descansando y logra curarse a "
-					+ this.unidad.obtenerSaludActual() + "/"
-					+ this.unidad.obtenerSaludMaxima());
+			unidadQueReposa.curar(cantidadARestaurar);
+			unidadQueReposa.decir("está descansando y logra curarse a "
+					+ unidadQueReposa.obtenerSaludActual() + "/"
+					+ unidadQueReposa.obtenerSaludMaxima());
 		}
 	}
 }

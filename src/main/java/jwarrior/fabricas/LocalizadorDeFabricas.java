@@ -1,27 +1,27 @@
 package jwarrior.fabricas;
 
 import jwarrior.fabricas.comandos.FabricaDeComandos;
-import jwarrior.fabricas.comandos.InstanciadorDeComandos;
+import jwarrior.fabricas.comandos.CreadorDeComandos;
 import jwarrior.fabricas.sentidos.FabricaDeSentidos;
-import jwarrior.fabricas.sentidos.InstanciadorDeSentidos;
+import jwarrior.fabricas.sentidos.CreadorDeSentidos;
 
 
-public class LocalizadorDeFabricas {
+public final class LocalizadorDeFabricas {
 
 	private static LocalizadorDeFabricas instancia = new LocalizadorDeFabricas();
 
 	private LocalizadorDeFabricas() { }
-	
+
 	public static LocalizadorDeFabricas obtenerInstancia() {
-		return instancia ;
+		return instancia;
 	}
-	
+
 	public FabricaDeComandos obtenerFabricaDeComandos() {
-		return new InstanciadorDeComandos();
+		return new CreadorDeComandos();
 	}
 
 	public FabricaDeSentidos obtenerFabricaDeSentidos() {
-		return new InstanciadorDeSentidos();
+		return new CreadorDeSentidos();
 	}
-	
+
 }

@@ -4,10 +4,10 @@ import jwarrior.piezas.unidades.Unidad;
 
 public abstract class Comando {
 
-	protected final Unidad unidad;
+	private final Unidad unidad;
 
-	public Comando(final Unidad unidad) {
-		this.unidad = unidad;
+	public Comando(final Unidad unidadProtagonista) {
+		this.unidad = unidadProtagonista;
 	}
 
 	public void ejecutarComando() {
@@ -17,4 +17,8 @@ public abstract class Comando {
 	}
 
 	protected abstract void ejecutar();
+
+	public Unidad obtenerUnidad() {
+		return this.unidad;
+	}
 }

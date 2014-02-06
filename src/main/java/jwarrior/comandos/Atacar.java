@@ -15,15 +15,15 @@ public class Atacar extends Comando {
 
 	@Override
 	public void ejecutar() {
-		Posicion posicionActual = this.unidad.obtenerPosicion();
+		Unidad unidadAtacante = this.obtenerUnidad();
+		Posicion posicionActual = unidadAtacante.obtenerPosicion();
+
 		Posicion posicionDestino = posicionActual.obtenerContigua(direccion);
+		Unidad unidadAtacada = posicionDestino.obtenerUnidad();
 
-		Unidad unidadGolpeada = posicionDestino.obtenerUnidad();
-		Unidad unidadGolpeadora = posicionActual.obtenerUnidad();
+		unidadAtacante.decir("ataca y golpea a " + unidadAtacada);
 
-		this.unidad.decir("ataca y golpea a " + unidadGolpeada);
-
-		Integer fuerza = unidadGolpeadora.obtenerFuerzaMaxima();
-		unidadGolpeada.recibirGolpe(fuerza);
+		Integer fuerza = unidadAtacante.obtenerFuerzaMaxima();
+		unidadAtacada.recibirGolpe(fuerza);
 	}
 }

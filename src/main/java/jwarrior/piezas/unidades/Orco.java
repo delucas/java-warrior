@@ -18,7 +18,7 @@ public class Orco extends Unidad {
 	}
 
 	@Override
-	public Comando proximoMovimiento() {
+	public Comando proximoComando() {
 	    Comando proximoComando = null;
 	    if (this.sentir(ATRAS).hay(GUERRERO)) {
 	      proximoComando = this.atacar(ATRAS);

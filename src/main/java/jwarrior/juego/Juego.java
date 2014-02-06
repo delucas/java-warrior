@@ -33,11 +33,11 @@ public class Juego {
 			mensaje("Turno: " + turno);
 			mensaje(this.mapa.toString());
 
-			List<Comando> movimientos = new LinkedList<Comando>();
+			List<Comando> comandos = new LinkedList<Comando>();
 			for (Unidad unidad : this.mapa.obtenerUnidades()) {
-				movimientos.add(unidad.proximoMovimiento());
+				comandos.add(unidad.proximoComando());
 			}
-			for (Comando c : movimientos) {
+			for (Comando c : comandos) {
 				c.ejecutarComando();
 			}
 			turno++;
