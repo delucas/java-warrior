@@ -3,6 +3,7 @@ package jwarrior.piezas.unidades;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import jwarrior.piezas.unidades.mocks.UnidadSaludable;
+import jwarrior.piezas.unidades.mocks.UnidadStubBuilder;
 
 import org.junit.Test;
 
@@ -56,7 +57,7 @@ public class SaludDeUnidadTests {
 		assertThat(unidad.estaVivo(), is(false));
 		assertThat(unidad.invocoMorir(), is(true));
 	}
-	
+
 	@Test
 	public void unidadLevementeHeridaPuedeCurarseTotalmente() {
 
@@ -79,7 +80,7 @@ public class SaludDeUnidadTests {
 		assertThat(unidad.obtenerSaludActual(),
 				is(unidad.obtenerSaludMaxima()));
 	}
-	
+
 	@Test
 	public void unidadHeridaPuedeCurarse() {
 

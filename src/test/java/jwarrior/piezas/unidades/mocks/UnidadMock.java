@@ -1,11 +1,16 @@
 package jwarrior.piezas.unidades.mocks;
 
 import jwarrior.piezas.unidades.Unidad;
+import jwarrior.referencias.Espacio;
 
 public abstract class UnidadMock extends Unidad {
 
 	protected UnidadMock() {
 		super(null, null);
+	}
+
+	protected UnidadMock(String nombre, Espacio espacio) {
+		super(nombre, espacio);
 	}
 
 	private boolean invocoMorir = false;

@@ -2,10 +2,11 @@ package jwarrior.piezas.unidades;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertThat;
+import jwarrior.comandos.Atacar;
+import jwarrior.comandos.Descansar;
+import jwarrior.comandos.Desplazarse;
 import jwarrior.comandos.NoHacerNada;
-import jwarrior.piezas.unidades.mocks.UnidadHerida;
-import jwarrior.piezas.unidades.mocks.UnidadLevementeHerida;
-import jwarrior.piezas.unidades.mocks.UnidadSaludable;
+import jwarrior.piezas.unidades.mocks.UnidadStubBuilder;
 
 import org.junit.Test;
 
@@ -17,29 +18,25 @@ public class ComandosDeUnidadTests {
 		Unidad unidad = UnidadStubBuilder.construirStub();
 		assertThat(unidad.proximoComando(), instanceOf(NoHacerNada.class));
 	}
-}
 
-class UnidadStubBuilder {
-	public static Unidad construirStub() {
-		return new Unidad(null, null) {
-			@Override
-			public String toCharacter() {
-				return null;
-			}
-		};
+	@Test
+	public void unidadPorDefectoAlAtacarGeneraComandoAtacar() {
+
+		Unidad unidad = UnidadStubBuilder.construirStub();
+		assertThat(unidad.atacar(null), instanceOf(Atacar.class));
 	}
 
-	public static UnidadSaludable construirStubSaludable(Integer saludMaxima) {
-		return new UnidadSaludable(saludMaxima);
+	@Test
+	public void unidadPorDefectoAlDesplazarseGeneraComandoDesplazarse() {
+
+		Unidad unidad = UnidadStubBuilder.construirStub();
+		assertThat(unidad.desplazarse(null), instanceOf(Desplazarse.class));
 	}
 
-	public static UnidadHerida construirStubHerido(Integer saludMaxima) {
-		// TODO Auto-generated method stub
-		return new UnidadHerida(saludMaxima);
-	}
+	@Test
+	public void unidadPorDefectoAlDescansarGeneraComandoDescansar() {
 
-	public static UnidadLevementeHerida construirStubLevementeHerido(Integer saludMaxima) {
-		// TODO Auto-generated method stub
-		return new UnidadLevementeHerida(saludMaxima);
+		Unidad unidad = UnidadStubBuilder.construirStub();
+		assertThat(unidad.descansar(), instanceOf(Descansar.class));
 	}
 }
