@@ -22,6 +22,7 @@ configurations {
 dependencies {
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
     testCompile group: 'junit', name: 'junit', version: '4.+'
+    testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.2.1'
     pmdConf group: 'pmd', name: 'pmd', version: '4.3'
 }
 
@@ -30,14 +31,14 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.saliman', name: 'gradle-cobertura-plugin', version: '1.1.1'
+        classpath group: 'net.saliman', name: 'gradle-cobertura-plugin', version: '2.2.2'
     }
 }
 
 // Tareas
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.6'
+    gradleVersion = '1.9'
 }
 
 checkstyle {
@@ -48,7 +49,6 @@ checkstyle {
 cobertura {
     coverageFormats = ['html', 'xml']
 }
-
 
 task pmd (dependsOn: compileJava) << {
     println 'Running PMD/CPD static code analysis'
