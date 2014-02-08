@@ -80,12 +80,12 @@ public abstract class Unidad extends Pieza {
 				this.saludMaxima);
 	}
 
-	private void morir() {
+	protected void morir() {
 		this.decir("muere");
 		this.obtenerPosicion().liberar();
 	}
 
-	public final void decir(final String frase) {
+	public void decir(final String frase) {
 		InterfazDeUsuario.getInstance().mensaje(nombre + " " + frase);
 	}
 
