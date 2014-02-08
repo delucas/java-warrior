@@ -6,7 +6,6 @@ import java.util.List;
 import jwarrior.juego.Jugador;
 import jwarrior.piezas.Puerta;
 import jwarrior.piezas.Salida;
-import jwarrior.piezas.unidades.Guerrero;
 import jwarrior.piezas.unidades.Orco;
 import jwarrior.posiciones.Posicion;
 
@@ -20,7 +19,7 @@ public class Nivel02 extends Nivel {
 	public List<Posicion> obtenerPosiciones() {
 		List<Posicion> posiciones = new ArrayList<Posicion>();
 		posiciones.add(new Puerta());
-		posiciones.add(new Posicion(new Guerrero(this.jugador.obtenerNombreDelGuerrero(), this.jugador)));
+		posiciones.add(new Posicion(crearGuerrero()));
 		posiciones.add(new Posicion());
 		posiciones.add(new Posicion(new Orco()));
 		posiciones.add(new Posicion(new Orco()));
