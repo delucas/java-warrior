@@ -2,17 +2,23 @@ package jwarrior.ui;
 
 public final class InterfazDeUsuario {
 
-	private static InterfazDeUsuario instance = new InterfazDeUsuario();
+	private static InterfazDeUsuario instancia = new InterfazDeUsuario();
+	private Salida salida;
 
-	private InterfazDeUsuario() { }
+	private InterfazDeUsuario() {
+		this.salida = new Salida();
+	}
 
-	public static InterfazDeUsuario getInstance() {
-		return instance;
+	public static InterfazDeUsuario obtenerInstancia() {
+		return instancia;
 	}
 
 	public void mensaje(final String mensaje) {
-		// TODO: Desacoplar en una "configuracion" / "salida" / etc
-		System.out.println(mensaje);
+		this.salida.enviar(mensaje);
+	}
+
+	public static void establecerSalida(final Salida salida) {
+		InterfazDeUsuario.obtenerInstancia().salida = salida;
 	}
 
 }

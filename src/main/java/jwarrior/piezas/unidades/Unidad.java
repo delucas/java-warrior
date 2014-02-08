@@ -86,7 +86,7 @@ public abstract class Unidad extends Pieza {
 	}
 
 	public void decir(final String frase) {
-		InterfazDeUsuario.getInstance().mensaje(nombre + " " + frase);
+		InterfazDeUsuario.obtenerInstancia().mensaje(nombre + " " + frase);
 	}
 
 	// Getters / Setters

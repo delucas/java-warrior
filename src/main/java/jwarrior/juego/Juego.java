@@ -20,7 +20,7 @@ public class Juego {
 	}
 
 	private void mensaje(final String mensaje) {
-		InterfazDeUsuario.getInstance().mensaje(mensaje);
+		InterfazDeUsuario.obtenerInstancia().mensaje(mensaje);
 	}
 
 	public void jugar() {
