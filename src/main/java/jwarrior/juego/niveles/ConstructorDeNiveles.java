@@ -11,7 +11,7 @@ import jwarrior.posiciones.Posicion;
 
 public class ConstructorDeNiveles {
 
-	public List<Posicion> construirPosiciones(String plano, Guerrero guerrero) {
+	public List<Posicion> construirPosiciones(final String plano, final Guerrero guerrero) {
 		List<Posicion> posiciones = new ArrayList<Posicion>();
 
 		for (char c : plano.toCharArray()) {
@@ -23,13 +23,13 @@ public class ConstructorDeNiveles {
 }
 
 class PosicionCodificada {
-	private char codigo;
+	private final char codigo;
 
-	public PosicionCodificada(char codigo) {
+	public PosicionCodificada(final char codigo) {
 		this.codigo = codigo;
 	}
 
-	public Posicion construirPosicion(Guerrero guerrero) {
+	public Posicion construirPosicion(final Guerrero guerrero) {
 		Posicion retorno = new Posicion();
 		if (esPuerta()) {
 			retorno = new Puerta();
