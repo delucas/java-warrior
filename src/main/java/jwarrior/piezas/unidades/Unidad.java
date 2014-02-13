@@ -29,35 +29,35 @@ public abstract class Unidad extends Pieza {
 
 	// Comandos y Sentidos
 
-	public final Comando noHacerNada() {
+	public Comando noHacerNada() {
 		return LocalizadorDeFabricas
 				.obtenerInstancia()
 				.obtenerFabricaDeComandos()
 				.crearNoHacerNada(this);
 	}
 
-	public final Comando atacar(final Direccion direccion) {
+	public Comando atacar(final Direccion direccion) {
 		return LocalizadorDeFabricas
 				.obtenerInstancia()
 				.obtenerFabricaDeComandos()
 				.crearAtacar(direccion, this);
 	}
 
-	public final Comando desplazarse(final Direccion direccion) {
+	public Comando desplazarse(final Direccion direccion) {
 		return LocalizadorDeFabricas
 				.obtenerInstancia()
 				.obtenerFabricaDeComandos()
 				.crearDesplazarse(direccion, this);
 	}
 
-	public final Comando descansar() {
+	public Comando descansar() {
 		return LocalizadorDeFabricas
 				.obtenerInstancia()
 				.obtenerFabricaDeComandos()
 				.crearDescansar(this);
 	}
 
-	public final Sentir sentir(final Direccion direccion) {
+	public Sentir sentir(final Direccion direccion) {
 		return LocalizadorDeFabricas
 				.obtenerInstancia()
 				.obtenerFabricaDeSentidos()
