@@ -32,5 +32,4 @@ public class Orco extends Unidad {
 	public String toCharacter() {
 		return "o";
 	}
-
 }

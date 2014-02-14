@@ -67,4 +67,8 @@ public class Mapa {
 		resultado += new String(new char[posiciones.size()]).replace("\0", "-");
 		return resultado;
 	}
+
+	public Unidad obtenerGuerrero() {
+		return this.guerrero;
+	}
 }

@@ -1,10 +1,13 @@
 package jwarrior.juego.puntuacion;
 
 import jwarrior.piezas.unidades.Unidad;
+import jwarrior.ui.InterfazDeUsuario;
 
 public class Puntaje {
 
-	private Integer puntos = 10;
+	private static final int PUNTAJE_INICIAL = 10;
+
+	private Integer puntos = PUNTAJE_INICIAL;
 
 	public Integer obtenerPuntaje() {
 		return this.puntos;
@@ -12,16 +15,26 @@ public class Puntaje {
 
 	// TODO: implementar una CalculadoraDePuntaje
 	public void notificarTurno() {
-		this.puntos -= 1;
+		Integer puntos = 1;
+		mensaje("-" + puntos);
+		this.puntos -= puntos;
 	}
 
 	// TODO: implementar una CalculadoraDePuntaje
-	public void notificarMuerteEnemigo(Unidad unidad) {
-		this.puntos += unidad.obtenerSaludMaxima();
+	public void notificarMuerteEnemigo(final Unidad unidad) {
+		Integer puntos = unidad.obtenerSaludMaxima();
+		mensaje("+" + puntos);
+		this.puntos += puntos;
 	}
 
 	// TODO: implementar una CalculadoraDePuntaje
-	public void notificarFinalizacionPartida(Unidad guerrero) {
-		this.puntos += guerrero.obtenerSaludActual() / 2;
+	public void notificarFinalizacionPartida(final Unidad guerrero) {
+		Integer puntos = guerrero.obtenerSaludActual() / 2;
+		mensaje("+" + puntos);
+		this.puntos += puntos;
+	}
+
+	protected void mensaje(final String mensaje) {
+		InterfazDeUsuario.obtenerInstancia().mensaje(mensaje);
 	}
 }
