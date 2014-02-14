@@ -9,6 +9,11 @@ public class GuerreroStub extends Guerrero {
 	public GuerreroStub() {
 		super("Nombre", new JugadorStub());
 	}
+
+	@Override
+	public void decir(String frase) {
+		// No dice nada
+	}
 }
 
 class JugadorStub implements Jugador {
