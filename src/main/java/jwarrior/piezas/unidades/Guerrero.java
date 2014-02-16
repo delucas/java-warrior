@@ -4,7 +4,6 @@ import static jwarrior.referencias.Espacio.GUERRERO;
 import jwarrior.comandos.Comando;
 import jwarrior.juego.Jugador;
 
-
 public class Guerrero extends Unidad {
 
 	private static final int FUERZA_MAXIMA = 5;

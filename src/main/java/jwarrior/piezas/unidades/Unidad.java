@@ -1,8 +1,11 @@
 package jwarrior.piezas.unidades;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import jwarrior.comandos.Comando;
 import jwarrior.fabricas.LocalizadorDeFabricas;
-import jwarrior.juego.Juego;
+import jwarrior.observadores.ObservadorDeUnidades;
 import jwarrior.piezas.Pieza;
 import jwarrior.referencias.Direccion;
 import jwarrior.referencias.Espacio;
@@ -17,9 +20,15 @@ public abstract class Unidad extends Pieza {
 	private Integer saludActual = 0;
 	private Integer fuerzaMaxima = 0;
 
+	private List<ObservadorDeUnidades> observadores = new LinkedList<ObservadorDeUnidades>();
+
 	protected Unidad(final String nombre, final Espacio tipo) {
 		super(tipo);
 		this.nombre = nombre;
+	}
+
+	public void agregarObservador(ObservadorDeUnidades observadorDeUnidades) {
+		this.observadores .add(observadorDeUnidades);
 	}
 
 	// Puntos de extensión
@@ -84,10 +93,9 @@ public abstract class Unidad extends Pieza {
 	protected void morir() {
 		this.decir("muere");
 		this.obtenerPosicion().liberar();
-		// FIXME: Deberia haber algo como una CentralDeNotificaciones, para
-		// evitar que se acople la unidad al juego.
-		if (Juego.obtenerInstancia() != null) { // FIXME: hack para testear.
-			Juego.obtenerInstancia().notificarMuerte(this);
+
+		for (ObservadorDeUnidades observador : this.observadores) {
+			observador.notificarMuerte(this);
 		}
 	}
 

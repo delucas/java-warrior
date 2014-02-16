@@ -5,7 +5,7 @@ import java.util.List;
 
 import jwarrior.comandos.Comando;
 import jwarrior.juego.niveles.Nivel;
-import jwarrior.juego.puntuacion.Puntaje;
+import jwarrior.juego.puntuacion.ControlDePuntaje;
 import jwarrior.piezas.unidades.Unidad;
 import jwarrior.ui.InterfazDeUsuario;
 
@@ -14,24 +14,16 @@ public class Juego {
 	private static final int CANTIDAD_MAXIMA_TURNOS = 100;
 	private final Mapa mapa;
 	private final Nivel nivel;
-	private Puntaje puntaje = new Puntaje();
 
-	private static Juego instancia;
+	private final ControlDePuntaje controlPuntaje = new ControlDePuntaje();
 
 	public Juego(final Nivel nivel) {
 		this.nivel = nivel;
-		this.mapa = new Mapa(nivel.obtenerPosiciones());
-		instancia = this;
+		this.mapa = new Mapa(nivel.obtenerPosiciones(controlPuntaje));
 	}
 
-	public static Juego obtenerInstancia() {
-		return instancia;
-	}
-
-	public void notificarMuerte(final Unidad unidad) {
-		if (unidad != this.mapa.obtenerGuerrero()) {
-			this.puntaje.notificarMuerteEnemigo(unidad);
-		}
+	public Unidad obtenerGuerrero() {
+		return this.mapa.obtenerGuerrero();
 	}
 
 	private void mensaje(final String mensaje) {
@@ -58,11 +50,11 @@ public class Juego {
 			turno++;
 			if (turno > CANTIDAD_MAXIMA_TURNOS || this.mapa.estaTerminado()) {
 				juegoTerminado = true;
-				this.puntaje.notificarFinalizacionPartida(this.mapa.obtenerGuerrero());
+				this.controlPuntaje.notificarFinal(this);
 				mensaje("juego terminado");
-				mensaje("Se ha obtenido un puntaje de " + this.puntaje.obtenerPuntaje());
+				mensaje("Se ha obtenido un puntaje de " + this.controlPuntaje.obtenerPuntaje());
 			} else {
-				this.puntaje.notificarTurno();
+				this.controlPuntaje.notificarTurno(this);
 				mensaje("");
 			}
 		}
