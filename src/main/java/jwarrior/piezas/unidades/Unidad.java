@@ -27,8 +27,8 @@ public abstract class Unidad extends Pieza {
 		this.nombre = nombre;
 	}
 
-	public void agregarObservador(ObservadorDeUnidades observadorDeUnidades) {
-		this.observadores .add(observadorDeUnidades);
+	public void agregarObservador(final ObservadorDeUnidades observadorDeUnidades) {
+		this.observadores.add(observadorDeUnidades);
 	}
 
 	// Puntos de extensión

@@ -5,7 +5,7 @@ import jwarrior.referencias.Espacio;
 
 public abstract class Pieza {
 
-	protected Espacio tipo;
+	private final Espacio tipo;
 	private Posicion posicion;
 
 	protected Pieza(final Espacio tipo) {

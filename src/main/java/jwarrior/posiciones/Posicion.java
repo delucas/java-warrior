@@ -11,7 +11,7 @@ import jwarrior.referencias.Espacio;
 public class Posicion {
 
 	private Mapa mapa;
-	protected Pieza pieza;
+	private Pieza pieza;
 
 	public Posicion() {
 		this(new PiezaNula());

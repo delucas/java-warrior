@@ -29,8 +29,7 @@ public abstract class Nivel {
 	}
 
 	private Guerrero crearGuerrero() {
-		Guerrero resultado = new Guerrero(this.jugador.obtenerNombreDelGuerrero(), this.jugador);
-		return resultado;
+		return new Guerrero(this.jugador.obtenerNombreDelGuerrero(), this.jugador);
 	}
 
 }
