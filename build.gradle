@@ -19,11 +19,23 @@ configurations {
     pmdConf
 }
 
+sourceSets {
+    acceptanceTest {
+        java.srcDir file('src/acceptance-tests/java')
+        resources.srcDir file('src/acceptance-tests/resources')
+    }
+}
+
 dependencies {
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
-    testCompile group: 'junit', name: 'junit', version: '4.+'
+    testCompile 'junit:junit:4.+'
     testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.2.1'
     pmdConf group: 'pmd', name: 'pmd', version: '4.3'
+
+    acceptanceTestCompile sourceSets.main.output
+    acceptanceTestCompile configurations.testCompile
+    acceptanceTestCompile sourceSets.test.output
+    acceptanceTestRuntime configurations.testRuntime
 }
 
 buildscript {
@@ -36,6 +48,13 @@ buildscript {
 }
 
 // Tareas
+
+task acceptanceTest(type: Test) {
+    description = "Corre los tests de aceptación"
+    testClassesDir = sourceSets.acceptanceTest.output.classesDir
+    classpath = sourceSets.acceptanceTest.runtimeClasspath
+    acceptanceTest.reports.html.destination = file("$buildDir/reports/acceptance-tests")
+}
 
 task wrapper(type: Wrapper) {
     gradleVersion = '1.9'

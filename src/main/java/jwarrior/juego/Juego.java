@@ -26,6 +26,10 @@ public class Juego {
 		return this.mapa.obtenerGuerrero();
 	}
 
+	public Integer obtenerPuntaje() {
+		return this.controlPuntaje.obtenerPuntaje();
+	}
+
 	private void mensaje(final String mensaje) {
 		InterfazDeUsuario.obtenerInstancia().mensaje(mensaje);
 	}
