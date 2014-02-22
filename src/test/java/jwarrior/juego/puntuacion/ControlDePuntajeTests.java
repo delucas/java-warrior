@@ -19,18 +19,18 @@ public class ControlDePuntajeTests {
 
 	@Test
 	public void informaPuntuacionInicial() {
-		
+
 		ControlDePuntaje controlDePuntaje = new ControlDePuntaje();
 		assertThat(controlDePuntaje.obtenerPuntaje(), is(10));
 	}
-	
+
 	@Test
 	public void alInformarPasoDeTurnoNotificaConPuntajeNegativo() {
 
 		ControlDePuntaje controlDePuntaje = new ControlDePuntaje();
 		PuntajeEspia puntajeEspia = new PuntajeEspia();
 		controlDePuntaje.establecerPuntaje(puntajeEspia);
-		
+
 		controlDePuntaje.notificarTurno(new JuegoStub());
 		assertThat(puntajeEspia.invocoComputarConNegativo(), is(true));
 	}
@@ -41,7 +41,7 @@ public class ControlDePuntajeTests {
 		ControlDePuntaje controlDePuntaje = new ControlDePuntaje();
 		PuntajeEspia puntajeEspia = new PuntajeEspia();
 		controlDePuntaje.establecerPuntaje(puntajeEspia);
-		
+
 		controlDePuntaje.notificarMuerte(UnidadStubBuilder.construirStub());
 		assertThat(puntajeEspia.invocoComputar(), is(true));
 	}
@@ -52,7 +52,7 @@ public class ControlDePuntajeTests {
 		ControlDePuntaje controlDePuntaje = new ControlDePuntaje();
 		PuntajeEspia puntajeEspia = new PuntajeEspia();
 		controlDePuntaje.establecerPuntaje(puntajeEspia);
-		
+
 		controlDePuntaje.notificarMuerte(UnidadStubBuilder.construirStubGuerrero());
 		assertThat(puntajeEspia.invocoComputar(), is(false));
 	}
@@ -63,7 +63,7 @@ public class ControlDePuntajeTests {
 		ControlDePuntaje controlDePuntaje = new ControlDePuntaje();
 		PuntajeEspia puntajeEspia = new PuntajeEspia();
 		controlDePuntaje.establecerPuntaje(puntajeEspia);
-		
+
 		controlDePuntaje.notificarFinal(new JuegoStub());
 		assertThat(puntajeEspia.invocoComputar(), is(true));
 	}
@@ -74,7 +74,7 @@ class JuegoStub extends Juego {
 	public JuegoStub() {
 		super(new NivelDummy());
 	}
-	
+
 	@Override
 	public Unidad obtenerGuerrero() {
 		return UnidadStubBuilder.construirStubGuerrero();
@@ -103,11 +103,11 @@ class PuntajeEspia extends Puntaje {
 			this.computoConNegativo = true;
 		}
 	}
-	
+
 	public Boolean invocoComputarConNegativo() {
 		return this.computoConNegativo;
 	}
-	
+
 	public Boolean invocoComputar() {
 		return this.computo;
 	}

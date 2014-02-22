@@ -84,7 +84,7 @@ public abstract class Unidad extends Pieza {
 		}
 	}
 
-	public final void curar(final Integer cantidadARestaurar) {
+	public void curar(final Integer cantidadARestaurar) {
 		this.saludActual = Math.min(
 				this.saludActual + cantidadARestaurar,
 				this.saludMaxima);
@@ -109,7 +109,7 @@ public abstract class Unidad extends Pieza {
 		return this.saludActual == this.saludMaxima;
 	}
 
-	public final boolean estaVivo() {
+	public boolean estaVivo() {
 		return this.saludActual > 0;
 	}
 

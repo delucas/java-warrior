@@ -5,6 +5,7 @@ import jwarrior.piezas.PosicionEspia;
 import jwarrior.piezas.unidades.Guerrero;
 import jwarrior.piezas.unidades.Orco;
 import jwarrior.piezas.unidades.Unidad;
+import jwarrior.posiciones.PosicionStubBuilder;
 import jwarrior.referencias.Espacio;
 
 public class UnidadStubBuilder {
@@ -25,7 +26,8 @@ public class UnidadStubBuilder {
 		return new UnidadHerida(saludMaxima);
 	}
 
-	public static UnidadLevementeHerida construirStubLevementeHerido(Integer saludMaxima) {
+	public static UnidadLevementeHerida construirStubLevementeHerido(
+			Integer saludMaxima) {
 		return new UnidadLevementeHerida(saludMaxima);
 	}
 
@@ -59,5 +61,30 @@ public class UnidadStubBuilder {
 
 	public static Orco construirOrcoConGuerreroAtras() {
 		return new OrcoQueSienteMock(Espacio.GUERRERO);
+	}
+
+	public static Unidad construirGuerreroConEnemigosAlrededor() {
+		// TODO Auto-generated method stub
+		return new GuerreroConEnemigoAlFrente();
+	}
+
+	public static UnidadEspia construirStubEspia() {
+		return new UnidadEspia();
+	}
+
+	public static UnidadMuerta construirStubMuerto() {
+		return new UnidadMuerta();
+	}
+
+	public static UnidadHeridaEspia construirStubHeridoEspia(Integer saludMaxima) {
+		return new UnidadHeridaEspia(saludMaxima);
+	}
+}
+
+class GuerreroConEnemigoAlFrente extends GuerreroStub {
+
+	public GuerreroConEnemigoAlFrente() {
+		this.establecerPosicion(PosicionStubBuilder
+				.construirPosicionJuntoAEnemigo());
 	}
 }
