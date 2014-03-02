@@ -11,7 +11,9 @@ El programador deberá codificar un `Jugador`, que tenga la lógica para guiar a
 
 ## Modo de uso
 
-Crear una clase que implemente la interfaz de `Jugador`. Por ejemplo, aquí está la que resuelve el primer nivel:
+Primero, se debe agregar la biblioteca de `java-warrior` al proyecto.
+
+Luego, es necesario crear una clase que implemente la interfaz de `Jugador`. Por ejemplo, aquí está la que resuelve el primer nivel:
 
     package jwarrior.jugadores;
 

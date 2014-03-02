@@ -60,6 +60,10 @@ task wrapper(type: Wrapper) {
     gradleVersion = '1.9'
 }
 
+jar {
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
 checkstyle {
     configFile = new File(rootDir, "src/test/resources/sun_checks.xml")
     ignoreFailures = true
